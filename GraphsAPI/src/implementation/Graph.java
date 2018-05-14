@@ -123,6 +123,60 @@ public class Graph {
     		return list.toString();
     }
 
+	/**
+	 * Returns the shortest path from a source vertex to a target vertex.
+	 *
+	 * @param {int} v1, the source vertex.
+	 * @param {int} v2, the target vertex.
+	 * @return {String} the shortest path between v1 and v2.
+	 */
+	public String shortestPath(int v1, int v2) {
+		int dist[] v = new int[numVertices];
+		boolean vis[] = new boolean[numVertices];
+		int previous[] = new int[numVertices];
+
+		for (int i = 0; i < numVertices; ++i) {
+			dist[i] = Integer.MAX_VALUE;
+			vis[i] = false;
+			previous[v] = -1;
+		}
+
+		dist[v1] = 0;
+
+		for (int i = 0; i < numVertices - 1; ++i) {
+			int current = minDistance(dist, vis);
+
+			for (int j = 0; j < numVertices; j++) {
+				if (!vis[j] && adjacencyMatrix[current][j] != 0
+						&& dist[current] != Integer.MAX_VALUE
+						&& dist[current] + adjacencyMatrix[current][j] < dist[j]) {
+					dist[j] = dist[current] + adjacencyMatrix[current][j];
+					previous[j] = current;
+				}
+			}
+
+		}
+
+		return buildAnswer(v1, v2, previous);
+	}
+
+	public String buildAnswer(int v1, int v2, previous) {
+		ArrayList answer = new ArrayList();
+		return null;
+	}
+
+	private int minDistance(int dist[], boolean vis[]) {
+		int min = Integer.MAX_VALUE, min_index = -1;
+
+		for (int i = 0; i < numVertices; i++) {
+			if (vis[i] == false && dist[i] <= min) {
+				min = dist[i];
+				min_index = i;
+			}
+		}
+		return min_index;
+	}
+
     public String toString(){
 		String out = "";
 
