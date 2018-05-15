@@ -212,8 +212,23 @@ public class GraphsTestSuite {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test
+
+    @Test
+    public void dfs() {
+        try {
+
+            graph = GraphUtils.readGraph("resources/input.txt");
+
+            System.out.print(GraphUtils.DFS(graph, 1));
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
 	public void shortestPath() {
 		try {
 			graph =  GraphUtils.readWeightedGraph("resources/inputWeight2.txt");

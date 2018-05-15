@@ -50,9 +50,16 @@ public class GraphAPIInterface {
 	public String BFS(Graph graph, int v) {
 		return GraphUtils.BFS(graph, v);
 	}
-	
+
+	/**
+	 * Deep-first search (DFS) is an algorithm for traversing or searching
+	 * tree or graph data structures.
+	 * @param Graph object
+	 * @param vertice to start the algorithm
+	 * @return A String that shows "vertex -level father" of all vertices from the given graph.
+	 */
 	public String DFS(Graph graph, int v) {
-		return null;
+		return GraphUtils.DFS(graph, v);
 	}
 	
 	/**

@@ -82,5 +82,9 @@ public class Graph {
 		return out;
 
 	}
+
+	public double getEdge(int i, int j){
+		return this.adjacencyMatrix[i][j];
+	}
 	
 }

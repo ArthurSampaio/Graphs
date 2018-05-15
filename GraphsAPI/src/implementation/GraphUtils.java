@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream.PutField;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * aux entity to work with the graph
@@ -143,7 +144,53 @@ public class GraphUtils {
    
     	return buildBFSOutput("", parents,graph.getAdjacencyMatrix().length,level);
     }
-    
+
+
+    public static String DFS(Graph graph, int v){
+
+        Stack s = new Stack();
+        boolean visited[] = new boolean[graph.getNumVertices()];
+        s.push(v);
+        visited[v-1] = true;
+        int level[] = new int[graph.getNumVertices()];
+        int[] parents = new int[graph.getAdjacencyMatrix().length];
+
+        level[v-1] = 0;
+
+        while (!s.isEmpty()){
+            int x = (int) s.peek();
+            int child  = findNextChildNode(graph, x, visited);
+
+            if(child != -1){
+                parents[child] = x;
+                level[child] =  1 + level[parents[child] - 1];
+                visited[child -1] = true;
+                s.push(child);
+            } else{
+                s.pop();
+            }
+
+        }
+
+        return buildBFSOutput("", parents,graph.getAdjacencyMatrix().length,level);
+
+
+    }
+
+    private static int findNextChildNode(Graph graph, int v, boolean[] visited){
+        int j = 0;
+
+        while(j < graph.getNumVertices()){
+            if(graph.getEdge(v-1, j) != 0.0 && (!visited[j])){
+                return j;
+            }
+        }
+        return -1;
+    }
+
+
+
+
     private static String buildBFSOutput(String output, int[] parents,int graphSize,int[]level) {
     	String line = "";
     	for(int i = 0; i < graphSize; i++) {
@@ -157,6 +204,8 @@ public class GraphUtils {
     return output;
     	
     }
+
+
     
     private static String getValue(double x) {
     	double y = Math.floor(x);
