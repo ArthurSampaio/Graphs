@@ -213,19 +213,19 @@ public class GraphsTestSuite {
 		}
 	}
 
-    @Test
-    public void dfs() {
-        try {
-
-            graph = GraphUtils.readGraph("resources/input.txt");
-
-            System.out.print(GraphUtils.DFS(graph, 1));
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-    }
+//    @Test
+//    public void dfs() {
+//        try {
+//
+//            graph = GraphUtils.readGraph("resources/input.txt");
+//
+//            System.out.print(GraphUtils.DFS(graph, 1));
+//
+//        } catch (IOException e) {
+//
+//            e.printStackTrace();
+//        }
+//    }
 
 
     @Test
