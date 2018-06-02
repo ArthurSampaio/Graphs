@@ -162,9 +162,9 @@ public class GraphUtils {
             int child  = findNextChildNode(graph, x, visited);
 
             if(child != -1){
-                parents[child] = x;
+                parents[child] = x+1;
                 level[child] =  1 + level[parents[child] - 1];
-                visited[child -1] = true;
+                visited[child] = true;
                 s.push(child);
             } else{
                 s.pop();
@@ -181,9 +181,11 @@ public class GraphUtils {
         int j = 0;
 
         while(j < graph.getNumVertices()){
-            if(graph.getEdge(v-1, j) != 0.0 && (!visited[j])){
+            if(graph.getEdge(v, j) != 0.0 && (!visited[j])){
                 return j;
             }
+            j++;
+            
         }
         return -1;
     }
