@@ -33,22 +33,26 @@ public class EdgeTest {
 		Assert.assertEquals(start, edge.getStart());
 	}
 	
+	@Test
 	public void testSetEnd() {
 		Vertex newvertex = new Vertex(3);
 		edge.setEnd(newvertex);
 		Assert.assertEquals(newvertex, edge.getEnd());
 	}
 	
+	@Test
 	public void testSetStart() {
 		Vertex newvertex = new Vertex(3);
 		edge.setStart(newvertex);
 		Assert.assertEquals(newvertex, edge.getStart());
 	}
 	
+	@Test
 	public void testGetWeight() {
 		Assert.assertEquals(10f, edge.getWeight(), 0.00001);
 	}
 
+	@Test
 	public void testSetWeight() {
 		edge.setWeight(9f);
 		Assert.assertEquals(9f, edge.getWeight(), 0.000001);
