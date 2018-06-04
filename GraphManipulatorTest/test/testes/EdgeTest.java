@@ -2,6 +2,7 @@ package testes;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 
 import manipulator.Edge;
@@ -9,7 +10,6 @@ import manipulator.Vertex;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 
 public class EdgeTest {
 
@@ -46,11 +46,11 @@ public class EdgeTest {
 	}
 	
 	public void testGetWeight() {
-		Assert.assertEquals(10f, edge.getWeight());
+		Assert.assertEquals(10f, edge.getWeight(), 0.00001);
 	}
 
 	public void testSetWeight() {
 		edge.setWeight(9f);
-		Assert.assertEquals(9f, edge.getWeight());
+		Assert.assertEquals(9f, edge.getWeight(), 0.000001);
 	}
 }
