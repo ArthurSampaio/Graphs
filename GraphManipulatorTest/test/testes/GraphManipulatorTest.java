@@ -16,12 +16,12 @@ public class GraphManipulatorTest {
 
     private GraphManipulator graphManipulator;
 
-    private static final String INPUT_SIMPLES = "/home/severino/Documents/ufcg/Graphs/GraphManipulatorTest/resources/input-sample.txt";
-    private static final String INPUT_SIMPLES_VERTICE_NEGATIVO = "/home/severino/Documents/ufcg/Graphs/GraphManipulatorTest/resources/input-sample-vertex-negativos.txt";
-    private static final String INPUT_SIMPLES_ARESTA_UNICA = "/home/severino/Documents/ufcg/Graphs/GraphManipulatorTest/resources/input-sample-uma-aresta.txt";
-    private static final String INPUT_SIMPLES_VERTICE_INVALIDO = "/home/severino/Documents/ufcg/Graphs/GraphManipulatorTest/resources/input-sample-vertice-invalido.txt";
-    private static final String INPUT_WEIGTH = "/home/severino/Documents/ufcg/Graphs/GraphManipulatorTest/resources/input-weigth.txt";
-    private static final String INPUT_NOT_CONNECTED = "/home/severino/Documents/ufcg/Graphs/GraphManipulatorTest/resources/input-not-connected.txt";
+    private static final String INPUT_SIMPLES = "resources/input-sample.txt";
+    private static final String INPUT_SIMPLES_VERTICE_NEGATIVO = "resources/input-sample-vertex-negativos.txt";
+    private static final String INPUT_SIMPLES_ARESTA_UNICA = "resources/input-sample-uma-aresta.txt";
+    private static final String INPUT_SIMPLES_VERTICE_INVALIDO = "resources/input-sample-vertice-invalido.txt";
+    private static final String INPUT_WEIGTH = "resources/input-weigth.txt";
+    private static final String INPUT_NOT_CONNECTED = "resources/input-not-connected.txt";
 
 
 
@@ -31,7 +31,7 @@ public class GraphManipulatorTest {
     }
 
     /*
-            Utilizando da técnica de caixa branca, ao fazer o teste simples para o readGraph, o mesmo apresentou um "IndexOutOfBoundException".
+            Utilizando da técnica de caixa preta, ao fazer o teste simples para o readGraph, o mesmo apresentou um "IndexOutOfBoundException".
         Ao investigar um pouco mais a fundo, percebemos que o arquivo.txt utilizado pela equipe estava errado: pedia 5 vertices e o arquivo
         só tinha dados para os quatro primeiros, este erro provavelmente acabou sendo propagado e influenciado o desenvolvimento de maneira
         negativa.
@@ -88,7 +88,7 @@ public class GraphManipulatorTest {
 
 
     /*
-        [CAIXA-BRANCA] Ao inserir um ultima aresta no arquivo.txt (5-6) deveria lançar uma excessão,
+        [CAIXA-PRETA] Ao inserir um ultima aresta no arquivo.txt (5-6) deveria lançar uma excessão,
     uma vez que o vertice 6 não existe neste contexto.
      */
     @Test
@@ -116,7 +116,7 @@ public class GraphManipulatorTest {
     }
 
     /*
-    [CAIXA-BRANCA] - ao receber o valor negativo da aresta era para ser disparado uma exception ou converter o valor negativo para positivo.
+    [CAIXA-PRETA] - ao receber o valor negativo da aresta era para ser disparado uma exception ou converter o valor negativo para positivo.
     O que o método faz é transformar o número negativo em 0.
      */
     @Test
