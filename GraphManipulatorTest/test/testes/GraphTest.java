@@ -61,5 +61,27 @@ public class GraphTest {
 		
 		Assert.assertEquals(lista.get(0), vertex2);
 	}
-
+	
+	@Test
+	public void testConnectInvalid() {
+		Assert.assertFalse(graph.connect(vertex1, vertex4));
+	}
+	
+	@Test
+	public void testConnectWeight() {
+		graph.setWeight(true);
+		graph.connect(vertex1, vertex2, 2f);
+		List lista = vertex1.neighbors();
+		
+		Assert.assertEquals(lista.get(0), vertex2);
+		
+	}
+	
+	@Test
+	public void testSetWeight() {
+		graph.setWeight(true);
+		Assert.assertTrue(graph.getWeight());
+	}
+	
+	
 }
