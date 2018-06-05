@@ -253,7 +253,7 @@ public class GraphManipulatorTest {
     
     @Test
     public void testGraphRepresentationWithWeight() {
-    	Graph<Integer> graph = graphManipulator.readGraph(INPUT_WEIGHT2);
+    	Graph<Integer> graph = graphManipulator.readWeightedGraph(INPUT_WEIGHT2);
 
     	String sMatrix = "  1 2 3 4 5\n" + 
 				"1 0 0.1 0 0 1 \n" + 
@@ -275,7 +275,7 @@ public class GraphManipulatorTest {
   
     @Test
     public void testMST() {
-    		Graph<Integer> graph = graphManipulator.readGraph(INPUT_WEIGTH);
+    		Graph<Integer> graph = graphManipulator.readWeightedGraph(INPUT_WEIGTH);
     		String ans = "1 - - 0\n" + 
 					"2 - 1 1\n" + 
 					"3 - 4 4\n" + 
