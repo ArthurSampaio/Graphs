@@ -57,4 +57,17 @@ public class EdgeTest {
 		edge.setWeight(9f);
 		Assert.assertEquals(9f, edge.getWeight(), 0.000001);
 	}
+	
+	@Test
+	public void testEquals() {
+		Edge edgeToCompare = new Edge(end, start,10f);
+		Assert.assertEquals(edge, edgeToCompare);
+	}
+	
+	@Test
+	public void testNotEquals( ) {
+		Edge edgeToCompare = new Edge(end, start,8f);
+		Assert.assertNotEquals(edge, edgeToCompare);
+	}
+	
 }
