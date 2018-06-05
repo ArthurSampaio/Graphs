@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import implementation.GraphUtils;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -283,6 +285,12 @@ public class GraphManipulatorTest {
 					"5 - 2 2";
     		
     		Assert.assertEquals(ans, graphManipulator.MST(graph));
+    }
+    
+    @Test
+    public void testMeanEdge() {
+    	Graph<Integer> graph = graphManipulator.readWeightedGraph(INPUT_SIMPLES);
+    	Assert.assertEquals(2.0, graphManipulator.getMeanEdge(graph), 0.01);
     }
         
 
