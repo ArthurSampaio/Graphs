@@ -289,8 +289,8 @@ public class GraphManipulatorTest {
     
     @Test
     public void testMeanEdge() {
-    	Graph<Integer> graph = graphManipulator.readWeightedGraph(INPUT_SIMPLES);
-    	Assert.assertEquals(2.0, graphManipulator.getMeanEdge(graph), 0.01);
+    	Graph<Integer> graph = graphManipulator.readWeightedGraph(INPUT_WEIGHT2);
+    	Assert.assertEquals(2.4, graphManipulator.getMeanEdge(graph), 0.01);
     }
         
 
