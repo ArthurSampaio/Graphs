@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.List;
 
 import static junit.framework.TestCase.fail;
@@ -22,7 +23,7 @@ public class GraphManipulatorTest {
     private static final String INPUT_SIMPLES_VERTICE_INVALIDO = "resources/input-sample-vertice-invalido.txt";
     private static final String INPUT_WEIGTH = "resources/input-weigth.txt";
     private static final String INPUT_NOT_CONNECTED = "resources/input-not-connected.txt";
-
+    private static final String INPUT_WEIGHT2 = "resources/inputWithWeight2.txt";
 
 
     @Before
@@ -250,6 +251,27 @@ public class GraphManipulatorTest {
     	Assert.assertEquals(output1, graphManipulator.BFS(graph, realNodes.get(1)));
     }
     
+    @Test
+    public void testGraphRepresentationWithWeight() {
+    	Graph<Integer> graph = graphManipulator.readGraph(INPUT_WEIGHT2);
+
+    	String sMatrix = "  1 2 3 4 5\n" + 
+				"1 0 0.1 0 0 1 \n" + 
+				"2 0.1 0 0 0 0.2 \n" + 
+				"3 0 0 0 -9.5 5 \n" + 
+				"4 0 0 -9.5 0 2.3 \n" + 
+				"5 1 0.2 5 2.3 0 \n" +
+				"";
+		
+		String sL = "1-2(0.1) 5(1) \n" + 
+				"2-1(0.1) 5(0.2) \n" + 
+				"3-4(-9.5) 5(5) \n" + 
+				"4-3(-9.5) 5(2.3) \n" + 
+				"5-1(1) 2(0.2) 3(5) 4(2.3) \n";
+		
+		Assert.assertEquals(sMatrix, graphManipulator.graphRepresentation(graph, "AM"));
+		Assert.assertEquals(sL, graphManipulator.graphRepresentation(graph, "AL"));
+	}
     
 
     private Graph<Integer> grafoMocado() {
