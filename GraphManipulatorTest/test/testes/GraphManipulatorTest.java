@@ -272,7 +272,19 @@ public class GraphManipulatorTest {
 		Assert.assertEquals(sMatrix, graphManipulator.graphRepresentation(graph, "AM"));
 		Assert.assertEquals(sL, graphManipulator.graphRepresentation(graph, "AL"));
 	}
-    
+  
+    @Test
+    public void testMST() {
+    		Graph<Integer> graph = graphManipulator.readGraph(INPUT_WEIGTH);
+    		String ans = "1 - - 0\n" + 
+					"2 - 1 1\n" + 
+					"3 - 4 4\n" + 
+					"4 - 5 3\n" + 
+					"5 - 2 2";
+    		
+    		Assert.assertEquals(ans, graphManipulator.MST(graph));
+    }
+        
 
     private Graph<Integer> grafoMocado() {
         Graph<Integer> graph = new Graph<Integer>();
