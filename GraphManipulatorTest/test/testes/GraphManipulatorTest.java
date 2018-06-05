@@ -194,21 +194,63 @@ public class GraphManipulatorTest {
 
     }
 
+    @Test
+    public void testReadWeightedGraph() {
+    	
+    	try{
+            Graph<Integer> graph = graphManipulator.readWeightedGraph(INPUT_WEIGTH);
 
+            List<Vertex<Integer>> realNodes = graph.getNodes();
+            List<Vertex<Integer>> mockNodes = grafoMocado().getNodes();
 
+            for (int i = 0; i < realNodes.size(); i++) {
+                Assert.assertEquals(realNodes.get(i), mockNodes.get(i));
 
+                List<Edge<Integer>> realEdges = realNodes.get(i).getEdges();
+                List<Edge<Integer>> mockEdges = mockNodes.get(i).getEdges();
 
+                for (int j = 0; j < realEdges.size(); j++) {
+                    Assert.assertEquals(realEdges.get(j).getEnd(), mockEdges.get(j).getEnd());
+                    Assert.assertNotEquals(realEdges.get(j).getWeight(), mockEdges.get(j).getWeight());
+                }
+            }
+            Assert.assertTrue(false);
 
+        }catch (Exception e){
+            //fail("Esta linha nao devia ser executada");
+            Assert.assertTrue(true);
+        }
 
-
-
-
-
-
-
-
-
-
+    }
+    
+    @Test
+    public void testDFS() {
+    	Graph<Integer> graph = graphManipulator.readGraph(INPUT_SIMPLES);
+    	List<Vertex<Integer>> realNodes = graph.getNodes();
+    	String output1 = "1-0 -\n" + 
+				"2-1 1\n" + 
+				"3-2 5\n" + 
+				"4-2 5\n" + 
+				"5-1 1\n" + 
+				"";
+    	Assert.assertEquals(output1, graphManipulator.DFS(graph, realNodes.get(1)));
+    	
+    }
+    
+    @Test
+    public void testBFS() {
+    	Graph<Integer> graph = graphManipulator.readGraph(INPUT_SIMPLES);
+    	List<Vertex<Integer>> realNodes = graph.getNodes();
+    	String output1 = "1-0 -\n" + 
+				"2-1 1\n" + 
+				"3-2 5\n" + 
+				"4-2 5\n" + 
+				"5-1 1\n" + 
+				"";
+    	Assert.assertEquals(output1, graphManipulator.BFS(graph, realNodes.get(1)));
+    }
+    
+    
 
     private Graph<Integer> grafoMocado() {
         Graph<Integer> graph = new Graph<Integer>();
