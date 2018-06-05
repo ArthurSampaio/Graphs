@@ -78,10 +78,15 @@ public class GraphTest {
 	}
 	
 	@Test
+	public void testConnectWeightInvalid() {
+		graph.setWeight(true);
+		Assert.assertFalse(graph.connect(vertex1, vertex4, 2f));
+	}
+	
+	@Test
 	public void testSetWeight() {
 		graph.setWeight(true);
 		Assert.assertTrue(graph.getWeight());
 	}
-	
-	
+
 }
