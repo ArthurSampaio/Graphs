@@ -250,6 +250,18 @@ public class GraphManipulatorTest {
     	Assert.assertEquals(output1, graphManipulator.BFS(graph, realNodes.get(1)));
     }
     
+    @Test
+    public void testMST() {
+    		Graph<Integer> graph = graphManipulator.readGraph(INPUT_WEIGTH);
+    		String ans = "1 - - 0\n" + 
+					"2 - 1 1\n" + 
+					"3 - 4 4\n" + 
+					"4 - 5 3\n" + 
+					"5 - 2 2";
+    		
+    		Assert.assertEquals(ans, graphManipulator.MST(graph));
+    }
+    
     
 
     private Graph<Integer> grafoMocado() {
